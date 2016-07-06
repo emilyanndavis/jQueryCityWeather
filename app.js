@@ -6,10 +6,8 @@
 
 		// get the city & weather data
 		getCity(zip, function(cityData){
-			console.log(cityData);
 
 			getWeather(zip, function(weatherData){
-				console.log(weatherData);
 
 				// add a city panel to the list	
 				var template = $('#cityTemplate').text()
@@ -63,7 +61,8 @@
 	$('#cityList').on('click', '.close', function(event){
 		event.preventDefault();
 		var cityPanel = $(this).closest('.city');
-		var remove = confirm('Remove ' + cityPanel.find('.panel-heading').find('span:first-child').text() + ' from your list?');
+		var cityName = cityPanel.find('.panel-heading').find('span:first-child').text();
+		var remove = confirm('Remove ' + cityName + ' from the list?');
 		if (remove) {
 			cityPanel.remove();
 		}
