@@ -62,12 +62,12 @@
 
 	$('#cityList').on('click', '.close', function(event){
 		event.preventDefault();
-		var cityPanel = $(this).parent().parent();
-		var remove = confirm('Remove this city from your list?');
+		var cityPanel = $(this).closest('.city');
+		var remove = confirm('Remove ' + cityPanel.find('.panel-heading').find('span:first-child').text() + ' from your list?');
 		if (remove) {
 			cityPanel.remove();
 		}
-	})
+	});
 
 
 })();
